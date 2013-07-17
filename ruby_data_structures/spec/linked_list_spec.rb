@@ -6,21 +6,22 @@ describe LinkedList do
   end
 
   it "initializes empty" do
-    @linked_list.length.should == 0
+    @linked_list.head.should == nil
   end
 
-  # describe "#add" do
-  #   it "should add the first item correctly" do
-  #     @linked_list.add('hi')
-  #     @linked_list.length.should == 1
-  #   end
+  describe "#add" do
+    it "should add the first item correctly" do
+      @linked_list.add('hi')
+      @linked_list.contains('hi').should == true
+    end
 
-  #   it "should add other items correctly" do 
-  #     @linked_list.add('first item')
-  #     @linked_list.add('second item')
-  #     @linked_list.length.should == 2
-  #   end
-  # end
+    it "should add other items correctly" do
+      @linked_list.add('first item')
+      @linked_list.add('second item')
+      @linked_list.contains('first item').should == true
+      @linked_list.contains('second item').should == true
+    end
+  end
 
   # describe "#remove" do
   #   it "should remove items" do
@@ -37,5 +38,5 @@ describe LinkedList do
   #     @linked_list.remove.should == 'first item'
   #   end
   # end
-  
+
 end
