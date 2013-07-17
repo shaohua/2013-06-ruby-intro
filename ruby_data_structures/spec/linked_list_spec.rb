@@ -23,20 +23,21 @@ describe LinkedList do
     end
   end
 
-  # describe "#remove" do
-  #   it "should remove items" do
-  #     @linked_list.add('first item')
-  #     @linked_list.length.should == 1
-  #     @linked_list.remove
-  #     @linked_list.length.should == 0
-  #   end
+  describe "#remove" do
+    it "should remove items" do
+      @linked_list.add('first item')
+      @linked_list.contains('first item').should == true
+      @linked_list.remove_from_head
+      @linked_list.contains('first item').should == false
+    end
 
-  #   it "should remove the last item" do
-  #     @linked_list.add('first item')
-  #     @linked_list.add('second item')
-  #     @linked_list.remove.should == 'second item'
-  #     @linked_list.remove.should == 'first item'
-  #   end
-  # end
+    it "should remove the last item" do
+      @linked_list.add('first item')
+      @linked_list.add('second item')
+      @linked_list.remove_from_head
+      @linked_list.contains('first item').should == false
+      @linked_list.contains('second item').should == true
+    end
+  end
 
 end

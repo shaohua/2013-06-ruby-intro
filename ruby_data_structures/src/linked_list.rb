@@ -17,19 +17,27 @@ class LinkedList
     end
   end
 
-  def remove_from_tail
-    if(tail)
-      # tail
+  def remove_from_head
+    if(@head)
+      if(@head.next)
+        @head = @head.next
+      else
+        @head = @tail = nil
+      end
     end
   end
 
   def contains(value)
-    current_node = @head
-    flag = current_node.contains(value)
-    while(current_node.next and !flag)
-      current_node = current_node.next
-      flag = current_node.contains(value)
-      break if flag
+    #when the list is empty, return false
+    if(@head == nil)
+      return false
+    end
+
+    node = @head
+    flag = node.contains(value)
+    while(node.next and !flag)
+      node = node.next
+      flag = node.contains(value)
     end
     return flag
   end
